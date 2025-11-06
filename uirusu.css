@@ -1,0 +1,88 @@
+/* 画面全体を覆い、スクロールを禁止 */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* スクロールを禁止 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Windowsっぽいフォント */
+    user-select: none; /* テキスト選択を禁止してロック感を出す */
+    cursor: default; /* カーソルを標準に戻す */
+}
+
+/* オーバーレイ（背景） */
+#fullScreenOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* 画面が暗くなった感じ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 警告ダイアログのスタイル */
+#alertBox {
+    width: 500px;
+    background-color: #f0f0f0; /* 少しグレーがかった色 */
+    border: 3px solid #ff0000; /* 赤い太枠で危険感を強調 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* ヘッダー（タイトルバー） */
+.header {
+    background-color: #c00000; /* 警告にふさわしい赤 */
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: move; /* ドラッグできそうに見せる（実際は動かない） */
+}
+
+/* コンテンツ部分 */
+.content {
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+
+h1 {
+    color: #c00000;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+/* ボタン */
+#fixButton {
+    background-color: #0078d4; /* Windowsのプライマリボタンの色 */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 15px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* スキャンステータス */
+#scanStatus {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #0078d4;
+}
+
+/* 振動アニメーション */
+@keyframes shake {
+    0%, 100% { transform: translate(0, 0); }
+    20%, 60% { transform: translate(-5px, 0); }
+    40%, 80% { transform: translate(5px, 0); }
+}
+
+.shake {
+    animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
