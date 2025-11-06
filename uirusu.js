@@ -3,7 +3,7 @@
         const scanStatus = document.getElementById("scanStatus");
 
         // カウントダウン用の変数を初期化 (テスト用に5秒に設定されています)
-        let timeLeft = 5;
+        let timeLeft = 60;
 
         // カウントアップの間隔 (ミリ秒) - 1000ms = 1秒ごとに更新
         const updateInterval = 1000;
