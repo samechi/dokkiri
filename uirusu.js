@@ -23,16 +23,6 @@
         )}...データが消去されます。`;
         scanStatus.style.color = "#ff0000"; // カウントダウンなので最初から赤く
 
-        // 1. 画面の振動（5秒ごとに振動）
-        function shakeScreen() {
-            fullScreenOverlay.classList.add("shake");
-            setTimeout(() => {
-            fullScreenOverlay.classList.remove("shake");
-            }, 600); // 振動効果の持続時間
-        }
-        // 振動をセット。timeLeftが5秒なので、最初の振動は来ないかもしれませんね！
-        setInterval(shakeScreen, 1000);
-
         // 2. 閉じようとすると警告を出す
         window.addEventListener("beforeunload", (e) => {
             e.preventDefault();
