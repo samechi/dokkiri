@@ -73,3 +73,16 @@ h1 {
     color: #0078d4;
 }
 
+/* 振動アニメーション */
+@keyframes shake {
+    0%, 100% { transform: translate(0, 0); }
+    20%, 60% { transform: translate(-5px, 0); }
+    40%, 80% { transform: translate(5px, 0); }
+}
+
+.shake {
+    animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
